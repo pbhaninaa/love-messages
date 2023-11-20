@@ -1,96 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <title>Romantic Message</title>
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        position: sticky;
-        background: url("https://wallpaper.dog/large/20400847.jpg")
-          no-repeat center center fixed;
-        background-size: cover;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Romantic Message</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      position: sticky;
+      background: url("https://wallpaper.dog/large/20400847.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      text-align: center;
+      height: 200px;
+      width: 50%;
+    }
+
+    #hello-text {
+      font-size: 20px;
+      color: #d71313;
+      white-space: pre-line;
+      word-wrap: break-word;
+      display: none;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #change-button {
+      margin-top: 20px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      background: url("https://img.freepik.com/premium-photo/love-letter-3d-render-closed-pink-envelope-with-red-heart-notification-isolated-white_75114-1111.jpg?w=2000") no-repeat center bottom;
+      background-size: cover;
+      border-radius: 50%;
+      font-size: 16px;
+      color: #d71313;
+      font-weight: bold;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
       }
 
-      .container {
-        text-align: center;
-        height: 200px; 
-        width: 30%;
+      50% {
+        transform: scale(1.1);
       }
 
-      #hello-text {
-        font-size: 36px;
-        font-weight: bold;
-        color: #d71313; 
-        white-space: pre-line; 
-        word-wrap: break-word; 
+      100% {
+        transform: scale(1);
       }
-      #change-button {
-        margin-top: 20px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        width: 80px;
-        height: 80px;
-        background: url("https://img.freepik.com/premium-photo/love-letter-3d-render-closed-pink-envelope-with-red-heart-notification-isolated-white_75114-1111.jpg?w=2000")
-          no-repeat center bottom;
-        background-size: cover;
-        padding-top: 60px;
-        border-radius: 10px;
-        text-size-adjust: 5px;
-        color: #d71313;
-        font-weight: bold;
-      }
-      @keyframes heartbeat {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.1);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div id="hello-text"></div>
-      <button id="change-button">I love you</button>
-    </div>
-    <audio
-      id="audio"
-      src="./song/song.mp3"
-      autoplay
-    ></audio>
+    }
+  </style>
+</head>
 
-    <script>
-      const helloText = document.getElementById("hello-text");
-      const changeButton = document.getElementById("change-button");
-      const audio = document.getElementById("audio");
-      changeButton.addEventListener("click", () => {
-        helloText.innerHTML = '<h3>A Special Message for MaTshabangu ❤️</h3>' +
-  "<p>Tulisa, you are the ❤️ of my life. Every moment with you is like a 🌹 blooming in my heart. Your love makes my world 🌞. I cherish every second spent with you. 💑</p>" +
-  "<p>My love for you, Tulisa, knows no bounds. It's like a river that flows endlessly, carrying my affection for you with it. Your presence in my life brightens even the darkest days, and I am grateful for every smile, every hug, and every moment we share. 💖</p>" +
-  "<p>In your eyes, Tulisa, I find my reflection, and in your heart, I find my home. Your love is the melody that plays in the background of my life, and I can't imagine a life without it. 🎶❤️</p>" +
-  "<p>I promise, Tulisa, to love you unconditionally, to be there for you in every season, and to cherish every memory we create together. You are the one who makes my heart skip a beat, and I'm thankful for the love we share. 🌟💑❤️</p>" +
-  "<p>Every day with you, Tulisa, is a new chapter in our love story, and I can't wait to fill the pages with more beautiful moments. I love you more than words can express, and my heart belongs to you, now and forever. 💏❤️🌹</p>";
-  helloText.style.fontSize = "12px";
-  helloText.style.color="white";
-        audio.play();
-        changeButton.style.display = "none"; 
-      });
-    </script>
-  </body>
+<body>
+  <div class="container">
+    <div id="hello-text"></div>
+    <button id="change-button">Show Message</button>
+  </div>
+  <audio id="audio" src="./song/song.mp3" autoplay></audio>
+
+  <script>
+    const helloText = document.getElementById("hello-text");
+    const changeButton = document.getElementById("change-button");
+    const audio = document.getElementById("audio");
+    changeButton.addEventListener("click", () => {
+      helloText.innerHTML = `
+        <h3>A Special Message for My Beloved</h3>
+        <p>Hey love,</p>
+        <p>In every beat of my heart, there's a melody that sings your name. You, my dearest, are the sunshine that brightens my days and the constancy that steadies my world. Being with you feels like walking through a garden of endless blossoms, each petal a testament to the beauty we share together.</p>
+        <p>Your presence is my refuge, a place where I find solace, warmth, and an endless sea of comfort. Your laughter is the soundtrack to my happiest moments, and your embrace, the safest place I've known. Every second spent with you feels like a treasured gift, painting the canvas of our lives with colors only our love knows.</p>
+        <p>I promise to walk by your side, hand in hand, through every twist and turn of life's journey. With each sunrise, I'll cherish the opportunity to create new memories, to laugh, to dream, and to love you more deeply than the day before.</p>
+        <p>You, my love, are my today, my tomorrow, and every day I dream of in the future. I adore you more than words can capture, and my heart, well, it's forever yours.</p>
+        <p>Forever loving you,<br>[Your Name]</p>
+      `;
+      helloText.style.display = "block";
+      helloText.style.color = "#d71313";
+      helloText.style.fontSize = "16px";
+      helloText.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+      helloText.style.borderRadius = "10px";
+      helloText.style.padding = "20px";
+      helloText.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
+      audio.play();
+      changeButton.style.display = "none";
+    });
+  </script>
+</body>
+
 </html>
